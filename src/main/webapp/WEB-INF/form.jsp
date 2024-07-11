@@ -9,7 +9,8 @@
 </head>
 <body>
 <div class="container">
-    <h1>Add a Cat</h1>
+    <h1>Cat</h1>
+    <h2> Add a Cat</h2>
     <form method="post" action="">
         <div class="row mb-3">
             <label for="name" class="col-sm-2 col-form-label">Name:</label>

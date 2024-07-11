@@ -8,7 +8,7 @@
 <h1><%= "Hello World!" %>
 </h1>
 <br/>
-<a href="form">Add Cat</a>
+<a href="form">Cat</a>
 
 </body>
 </html>
