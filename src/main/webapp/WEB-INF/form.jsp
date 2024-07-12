@@ -1,5 +1,4 @@
-<%@ page import="org.example.exercice4jee.model.Cat" %>
-<%@ page import="java.util.List" %>
+<jsp:useBean id="cats" type="java.util.ArrayList<org.example.exercice4jee.model.Cat>" scope="request" />
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -10,8 +9,8 @@
 <body>
 <div class="container">
     <h1>Cat</h1>
-    <h2> Add a Cat</h2>
-    <form method="post" action="">
+    <h2 class="mt-5"> Add a Cat</h2>
+    <form method="post" action="form">
         <div class="row mb-3">
             <label for="name" class="col-sm-2 col-form-label">Name:</label>
             <div class="col-sm-10">
@@ -40,6 +39,7 @@
     </form>
 
     <h2 class="mt-5">Cat List</h2>
+    <% if (!cats.isEmpty()) { %>
     <table class="table table-dark mt-4">
         <thead>
         <tr>
@@ -51,21 +51,19 @@
         </thead>
         <tbody>
         <%
-            List<Cat> catList = (List<Cat>) application.getAttribute("catList");
-            if (catList != null) {
-                for (Cat cat : catList) {
+           for (int i = 0; i < cats.size(); i++) {
         %>
         <tr>
-            <td><%= cat.getName() %></td>
-            <td><%= cat.getBreed() %></td>
-            <td><%= cat.getFavoriteFood() %></td>
-            <td><%= cat.getBirthdate() %></td>
+            <td><%= cats.get(i).getName() %></td>
+            <td><%= cats.get(i).getBreed() %></td>
+            <td><%= cats.get(i).getFavoriteFood() %></td>
+            <td><%= cats.get(i).getBirthdate() %></td>
         </tr>
-        <%
-                }
-            }
-        %>
+        <% } %>
         </tbody>
+        <% } else { %>
+        <p>No cats found.</p>
+        <% } %>
     </table>
 </div>
 </body>
