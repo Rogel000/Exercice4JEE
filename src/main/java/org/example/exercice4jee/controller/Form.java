@@ -16,11 +16,10 @@ import java.util.List;
 @WebServlet("/form")
 public class Form extends HttpServlet {
     private List<Cat> cats;
+
     @Override
     public void init() throws ServletException {
-
         cats = new ArrayList<>();
-        cats.add(new Cat("garfield","chat roux","lasagne", LocalDate.now()));
     }
 
 
